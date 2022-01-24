@@ -106,7 +106,7 @@ function randomizeVertices(geometryArray){
             z: geometryArray[i + 2],
         }
     
-        geometryArray[i + 2] = vertex.z + Math.random();
+        geometryArray[i + 2] = vertex.z + Math.random() * .3;
     
     }
 }
@@ -118,6 +118,10 @@ function generatePlane() {
         world.plane.height, 
         world.plane.widthSegments, 
         world.plane.heightSegments)
+
+    for(let i = 0; i < planeMesh.geometry.attributes.position.count; i++){
+        colors.push(0, .19, .4)
+    }
 
 
     planeMesh.geometry.setAttribute(
